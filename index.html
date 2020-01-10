@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTC-8">
+    <title>Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+
+</head>
+
+<body>
+    <h2>Password Generator</h2>
+    <button onclick="generate('password')">Generate Password</button>
+    <input id = "password" type = "text" placeholder="Your Password...  ">  
+    <script type="text/javascript">
+        var passW
+
+        function generate() {
+            var password = document.getElementById('password');
+
+            var lower = 'abcdefghijklmnopqrrstuvwxyz';
+            var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var number = '0123456789';
+            var spec = ' !"#$%&\'()*+,-/:;<=>?@^[\\]^_`{|}~';
+
+            var bag = ''
+
+            var charCount = prompt("How many characters? (Recommended 8-128)");
+
+            var lowConfirm = confirm("Would you like to include lowercase characters?");
+            var upConfirm = confirm("Would you like to include uppercase characters?");
+            var numConfirm = confirm("Would you like to include numbers?");
+            var specConfirm = confirm("Would you like to include special characters?");
+
+            if (lowConfirm) {
+                bag += lower;
+            }
+            if (upConfirm) {
+                bag += upper;
+            }
+            if (numConfirm) {
+                bag += number;
+            }
+            if (specConfirm) {
+                bag += spec;
+            }
+
+
+            for (var i = 0; i < charCount; i++) {
+                var character = Math.floor(Math.random() * bag.length);
+                password += bag.substr(character, 1);
+
+            }
+            return password;
+
+        }
+
+      
+        
+        </script>
+
+
+
+
+    
+
+
+    
+</body>
+
+</html>
