@@ -4,29 +4,22 @@
 <head>
     <meta charset="UTC-8">
     <title>Password Generator</title>
-    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
-
-</head>
-
-<body>
-    <h2>Password Generator</h2>
-    <button onclick="generate('password')">Generate Password</button>
-    <input id = "password" type = "text" placeholder="Your Password...  ">  
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
     <script type="text/javascript">
-        var passW
+
 
         function generate() {
-            var password = document.getElementById('password');
+            var code = '';
 
             var lower = 'abcdefghijklmnopqrrstuvwxyz';
             var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             var number = '0123456789';
             var spec = ' !"#$%&\'()*+,-/:;<=>?@^[\\]^_`{|}~';
 
-            var bag = ''
+            var bag = '';
 
             var charCount = prompt("How many characters? (Recommended 8-128)");
 
@@ -51,24 +44,89 @@
 
             for (var i = 0; i < charCount; i++) {
                 var character = Math.floor(Math.random() * bag.length);
-                password += bag.substr(character, 1);
+                code += bag.substr(character, 1);
 
             }
-            return password;
+            console.log(code);
+
+
+            document.getElementById("output").value = code;
 
         }
 
-      
+        function copyToClipboard(){
+            var copyText = document.getElementById("output");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+
+            alert ("Copied " + copyText.value + " to clipboard");
+        }
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="row" id= "header">
+        <div class="col-md-12 text-center">
+            
+            <p class="h2 ">Password Generator</p>
+        </div>
         
-        </script>
+    </div>
+    <div class="container">
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <p class="h2 text-center">Generate Password</p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8 form-group">
+                <textarea class="form-control text-center dash" id="output" type="text" placeholder="Your Password...  " rows="3">
+                </textarea>
+
+            </div>
+
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 text-center">
+                <button type="button" class="btn btn-danger" onclick="generate()">Generate Password</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Copy to Clipboard</button>
+            </div>
+        
+        </div>
+        <br>
+
+        
+    </div>
 
 
 
 
-    
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
