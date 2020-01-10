@@ -1,10 +1,10 @@
 body{
-    background-image: url(../Images/vintage-wallpaper.png);
+    background-image: url(../Images/triangle-mosaic.png);
     padding: 5px;
 }
 .container{
     margin-top: 20px;
-    background-color: cornsilk;
+    background-color: #eeeeee;
 }
 .dash{
     border: 2px, dashed, red;
@@ -14,5 +14,5 @@ body{
 }
 #header{
     margin-top: 10px;
-    color: cornsilk;
+    color: #cccccc
 }
