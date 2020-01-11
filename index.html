@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
     <script type="text/javascript">
 
-    document.getElementById("Generator").addEventListener("click", generate());
+
         function generate() {
             var code = '';
 
@@ -22,22 +22,23 @@
             var bag = '';
 
             var charCount = prompt("How many characters? (Recommended 8-128)");
-            charCount.toIn
-            if (charCount < 8 || charCount > 128) {
+
+            if(charCount < 8 || charCount > 128){
+            }
+                if(charCount<8){
+                alert("Not enough characters! Try Again");
+                }
+                else if(charCount >128){
+                    alert ("Too many characters! Try Again!")
+                }
             
-            if (charCount < 8) {
-                alert("Not enough characters! Try Again!");
-            }
-            else if (charCount > 128) {
-                alert("Too many characters! Try Again!")
-            }
-        }
-            else {
+            else{
             var lowConfirm = confirm("Would you like to include lowercase characters?");
             var upConfirm = confirm("Would you like to include uppercase characters?");
             var numConfirm = confirm("Would you like to include numbers?");
             var specConfirm = confirm("Would you like to include special characters?");
             }
+
             if (lowConfirm) {
                 bag += lower;
             }
@@ -57,14 +58,14 @@
                 code += bag.substr(character, 1);
 
             }
-
+            
 
 
             document.getElementById("output").value = code;
 
         }
 
-        function copyToClipboard() {
+        function copyToClipboard(){
             var copyText = document.getElementById("output");
 
             copyText.select();
@@ -72,9 +73,8 @@
 
             document.execCommand("copy");
 
-            alert("Copied password to clipboard");
+            alert ("Copied password to clipboard");
         }
-       
 
 
 
@@ -84,24 +84,23 @@
 </head>
 
 <body>
-    <div class="row" id="header">
+    <div class="row" id= "header">
         <div class="col-md-12 text-center">
-
+            
             <p class="h2 ">Password Generator</p>
         </div>
-
+        
     </div>
     <div class="container">
         <br>
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-md-center"> 
             <div class="col-md-8">
                 <p class="h2 text-center">Generate Password</p>
             </div>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-8 form-group">
-                <textarea class="form-control text-center" id="output" type="text" placeholder="Your Password...  "
-                    rows="3" spellcheck="false">
+                <textarea class="form-control text-center" id="output" type="text" placeholder="Your Password...  " rows="3" spellcheck="false">
                 </textarea>
 
             </div>
@@ -109,16 +108,16 @@
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-4 text-center">
-                <button id="Generator" type="button" class="btn btn-danger" >Generate Password</button>
+                <button type="button" class="btn btn-danger" onclick="generate()">Generate Password</button>
             </div>
             <div class="col-md-4 text-center">
                 <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Copy to Clipboard</button>
             </div>
-
+        
         </div>
         <br>
 
-
+        
     </div>
 
 
