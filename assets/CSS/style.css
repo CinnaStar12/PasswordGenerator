@@ -5,6 +5,7 @@ body{
 .container{
     margin-top: 20px;
     background-color: #eeeeee;
+    border: 2px solid peru;
 }
 .dash{
     border: 2px, dashed, red;
@@ -15,4 +16,15 @@ body{
 #header{
     margin-top: 10px;
     color: #cccccc
+}
+#output{
+    background-color: #777777;
+    color: transparent;
+    text-decoration: none;
+    border: 2px dashed orange;
+}
+#output:hover{
+    color: #cccccc;
+    border-color: blue;
+    
 }
