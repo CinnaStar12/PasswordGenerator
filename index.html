@@ -8,99 +8,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
-    <script type="text/javascript">
-
-
-        function generate() {
-            var code = '';
-
-            var lower = 'abcdefghijklmnopqrrstuvwxyz';
-            var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            var number = '0123456789';
-            var spec = ' !"#$%&\'()*+,-/:;<=>?@^[\\]^_`{|}~';
-
-            var bag = '';
-
-            var charCount = prompt("How many characters? (Recommended 8-128)");
-
-            if(charCount < 8 || charCount > 128){
-            }
-                if(charCount<8){
-                alert("Not enough characters! Try Again");
-                }
-                else if(charCount >128){
-                    alert ("Too many characters! Try Again!")
-                }
-            
-            else{
-            var lowConfirm = confirm("Would you like to include lowercase characters?");
-            var upConfirm = confirm("Would you like to include uppercase characters?");
-            var numConfirm = confirm("Would you like to include numbers?");
-            var specConfirm = confirm("Would you like to include special characters?");
-            }
-
-            if (lowConfirm) {
-                bag += lower;
-            }
-            if (upConfirm) {
-                bag += upper;
-            }
-            if (numConfirm) {
-                bag += number;
-            }
-            if (specConfirm) {
-                bag += spec;
-            }
-
-
-            for (var i = 0; i < charCount; i++) {
-                var character = Math.floor(Math.random() * bag.length);
-                code += bag.substr(character, 1);
-
-            }
-            
-
-
-            document.getElementById("output").value = code;
-
-        }
-
-        function copyToClipboard(){
-            var copyText = document.getElementById("output");
-
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-
-            document.execCommand("copy");
-
-            alert ("Copied password to clipboard");
-        }
-
-
-
-    </script>
-
 
 </head>
 
 <body>
-    <div class="row" id= "header">
+    <div class="row" id="header">
         <div class="col-md-12 text-center">
-            
+
             <p class="h2 ">Password Generator</p>
         </div>
-        
+
     </div>
     <div class="container">
         <br>
-        <div class="row justify-content-md-center"> 
+        <div class="row justify-content-md-center">
             <div class="col-md-8">
                 <p class="h2 text-center">Generate Password</p>
             </div>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-8 form-group">
-                <textarea class="form-control text-center" id="output" type="text" placeholder="Your Password...  " rows="3" spellcheck="false">
+                <textarea class="form-control text-center" id="output" type="text" placeholder="Your Password...  "
+                    rows="3" spellcheck="false">
                 </textarea>
 
             </div>
@@ -113,30 +42,13 @@
             <div class="col-md-4 text-center">
                 <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Copy to Clipboard</button>
             </div>
-        
+
         </div>
         <br>
 
-        
+
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="./script.js"></script>
 
 </body>
 
